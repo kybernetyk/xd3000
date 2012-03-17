@@ -1,0 +1,11 @@
+xd3000 image hosting
+====================
+
+a even more retarded image hoster in django ... 
+
+deps:
+	-python
+	-django
+
+license:
+	GPL3 (c) Leon Szpilewski

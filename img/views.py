@@ -34,8 +34,8 @@ def index(request):
         img.content_type = data.content_type
         img.pub_ip = str(request.META['REMOTE_ADDR'])
         img.save()
-        return render_to_response('success.html',{'img' : img})
-        #return HttpResponseRedirect(img.urlname)
+        #return render_to_response('success.html',{'img' : img})
+        return HttpResponseRedirect(img.urlname)
     else:
         return render_to_response('index.html', {},context_instance=RequestContext(request))
 

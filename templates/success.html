@@ -1,0 +1,6 @@
+http://fettemama.org:6502/{{ img.urlname }}
+<p>Upload successful. Share your upload through this URL: <a href='/{{img.urlname}}'>http://fettemama.org:6502/{{img.urlname}}</a></p>
+
+{% if 'img' in img.content_type or 'image' in img.content_type %}
+	<img src='/{{img.urlname}}'>
+{% endif %}

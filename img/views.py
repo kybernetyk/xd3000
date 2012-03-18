@@ -34,8 +34,8 @@ def index(request):
         img.content_type = data.content_type
         img.pub_ip = str(request.META['REMOTE_ADDR'])
         img.save()
-
-        return HttpResponseRedirect(img.urlname)
+        return render_to_response('success.html',{'img' : img})
+        #return HttpResponseRedirect(img.urlname)
     else:
         return render_to_response('index.html', {},context_instance=RequestContext(request))
 
@@ -44,5 +44,9 @@ def show(request, img_name):
     img_name = img_name.rstrip('/').strip('/')
     #img = get_list_or_404(Image, urlname=img_name)
     img = get_object_or_404(Image, urlname=img_name)
-    return HttpResponse(FileWrapper(file(img.filename)), content_type=img.content_type)
+    f = file(img.filename)
+    sze = f.tell()
+    resp = HttpResponse(FileWrapper(f), content_type=img.content_type)
+    #resp['Content-Length'] = sze
+    return resp
     #return HttpResponse("Text only, please: " + str(img), content_type="text/plain")

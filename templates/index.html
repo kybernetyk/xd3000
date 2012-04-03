@@ -13,12 +13,40 @@
     </form>
     <img src="http://fettemama.org:6503/logo.png" />
 	</center>
-		<p style='background-color: black; color:green;'>l33t command line fu:<br>
-			<pre>
-				curl -F "infile=@your_fucking.png;type=image/png" -F "submit=Upload" -vvv http://fettemama.org:6502/
-			</pre>
-			Just follow the location header :3
-		</p>
+<div>
+command line use:
+<pre style='background-color: black; color:LawnGreen;'>
+
+curl -F "infile=@your_fucking.png;type=image/png" -F "submit=Upload" -vvv http://fettemama.org:6502/
+
+* About to connect() to fettemama.org port 6502 (#0)
+* Trying 95.211.166.174...
+* connected
+* Connected to fettemama.org (95.211.166.174) port 6502 (#0)
+> POST / HTTP/1.1
+> User-Agent: curl/7.25.0 (i686-pc-linux-gnu) libcurl/7.25.0 OpenSSL/1.0.1 zlib/1.2.6 libssh2/1.4.0
+> Host: fettemama.org:6502
+> Accept: */*
+> Content-Length: 289602
+> Expect: 100-continue
+> Content-Type: multipart/form-data; boundary=----------------------------9568dfa4d258
+> 
+< HTTP/1.1 100 Continue
+< HTTP/1.1 302 FOUND
+< Date: Tue, 03 Apr 2012 19:32:59 GMT
+< Server: Apache/2.2.17 (Ubuntu)
+< Location: http://fettemama.org:6502/4468169ab6433e76576dac03fa2b163b
+< Vary: Accept-Encoding
+< Content-Length: 0
+< Content-Type: text/html; charset=utf-8
+* HTTP error before end of send, stop sending
+< 
+* Closing connection #0
+
+
+</pre>
+Follow the 'Location:' header to your uploaded file. Don't forget to set your content type right!
+</div>
 </body>
 </html>
 
